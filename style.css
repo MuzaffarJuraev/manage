@@ -372,6 +372,32 @@ input:where([type="text"], [type="email"]) {
   opacity: 0.1;
 }
 
+/* numbered items */
+
+.numbered-items {
+  counter-reset: count;
+}
+.numbered-items li {
+  counter-increment: count;
+}
+.numbered-items div {
+  display: grid;
+  align-items: center;
+  column-gap: var(--size-400);
+  grid-template-columns: min-content 1fr;
+}
+.numbered-items p {
+  grid-column: 1/-1;
+}
+.numbered-items div::before {
+  content: "0" counter(count);
+  background-color: var(--clr-accent-400);
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-bold);
+  padding: var(--size-200) var(--size-500);
+  border-radius: 100vw;
+}
+
 /* Utility classes */
 
 .visually-hidden {
